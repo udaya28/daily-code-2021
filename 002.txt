@@ -1,7 +1,47 @@
-----------------------------------------------------------------------------------
-hacker rank - https://www.hackerrank.com/challenges/designer-pdf-viewer/
----------------------------------------------------------------------------------------
-In Javascript
+
+===============================================================================
+Hackerrank link => https://www.hackerrank.com/challenges/designer-pdf-viewer/
+===============================================================================
+
+
+=================================>> PYTHON <<==================================
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the designerPdfViewer function below.
+def designerPdfViewer(h, word):
+    maximum = 0 
+    length = 0
+    for i in word:
+        length +=1
+        current = h[ord(i)-97]
+        if(maximum < current):
+            maximum = current
+    return maximum * length
+    
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    h = list(map(int, input().rstrip().split()))
+
+    word = input()
+
+    result = designerPdfViewer(h, word)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
+
+
+X===========X============X=======>> PYTHON <<=======X===========X=============X
+
+
+===============================>> JAVASCRIPT <<================================
 
 'use strict';
 
@@ -54,37 +94,5 @@ function main() {
     ws.end();
 }
 
-----------------------------------------------------------------------------------
-In python 
-
-import math
-import os
-import random
-import re
-import sys
-
-# Complete the designerPdfViewer function below.
-def designerPdfViewer(h, word):
-    maximum = 0 
-    length = 0
-    for i in word:
-        length +=1
-        current = h[ord(i)-97]
-        if(maximum < current):
-            maximum = current
-    return maximum * length
-    
-
-if __name__ == '__main__':
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')
-
-    h = list(map(int, input().rstrip().split()))
-
-    word = input()
-
-    result = designerPdfViewer(h, word)
-
-    fptr.write(str(result) + '\n')
-
-    fptr.close()
+X==========X===========X=======>> JAVASCRIPT <<======X=============X==========X
 

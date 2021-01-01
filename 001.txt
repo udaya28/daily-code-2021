@@ -1,7 +1,45 @@
----------------------------------------------------------------------------------
-Hacker rank - https://www.hackerrank.com/challenges/the-hurdle-race/
----------------------------------------------------------------------------------
-In Javascript
+
+===============================================================================
+Hackerrank link => https://www.hackerrank.com/challenges/the-hurdle-race/
+===============================================================================
+
+
+=================================>> PYTHON <<==================================
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the hurdleRace function below.
+def hurdleRace(k, height):
+    maximum = max(height)
+    if(k >=maximum):
+        return 0
+    return maximum- k
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    nk = input().split()
+
+    n = int(nk[0])
+
+    k = int(nk[1])
+
+    height = list(map(int, input().rstrip().split()))
+
+    result = hurdleRace(k, height)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
+
+X===========X============X=======>> PYTHON <<=======X===========X=============X
+
+
+===============================>> JAVASCRIPT <<================================
 
 'use strict';
 
@@ -56,36 +94,5 @@ function main() {
     ws.end();
 }
 
+X==========X===========X=======>> JAVASCRIPT <<======X=============X==========X
 
-------------------------------------------------------------------------
-In Python
-
-import math
-import os
-import random
-import re
-import sys
-
-# Complete the hurdleRace function below.
-def hurdleRace(k, height):
-    maximum = max(height)
-    if(k >=maximum):
-        return 0
-    return maximum- k
-
-if __name__ == '__main__':
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')
-
-    nk = input().split()
-
-    n = int(nk[0])
-
-    k = int(nk[1])
-
-    height = list(map(int, input().rstrip().split()))
-
-    result = hurdleRace(k, height)
-
-    fptr.write(str(result) + '\n')
-
-    fptr.close()
