@@ -1,1 +1,1 @@
-# Problemes solved 😋
+# Problems solved 😋
