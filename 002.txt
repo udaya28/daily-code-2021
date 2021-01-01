@@ -1,0 +1,90 @@
+----------------------------------------------------------------------------------
+hacker rank - https://www.hackerrank.com/challenges/designer-pdf-viewer/
+---------------------------------------------------------------------------------------
+In Javascript
+
+'use strict';
+
+const fs = require('fs');
+
+process.stdin.resume();
+process.stdin.setEncoding('utf-8');
+
+let inputString = '';
+let currentLine = 0;
+
+process.stdin.on('data', inputStdin => {
+    inputString += inputStdin;
+});
+
+process.stdin.on('end', _ => {
+    inputString = inputString.replace(/\s*$/, '')
+        .split('\n')
+        .map(str => str.replace(/\s*$/, ''));
+
+    main();
+});
+
+function readLine() {
+    return inputString[currentLine++];
+}
+
+// Complete the designerPdfViewer function below.
+function designerPdfViewer(h, word) {
+    let maximum = 0, current;
+    for (let letter of word){
+        current = h[letter.charCodeAt(0)-97];
+        maximum = maximum < current ? current : maximum
+        }
+    return maximum * word.length
+
+}
+
+function main() {
+    const ws = fs.createWriteStream(process.env.OUTPUT_PATH);
+
+    const h = readLine().split(' ').map(hTemp => parseInt(hTemp, 10));
+
+    const word = readLine();
+
+    let result = designerPdfViewer(h, word);
+
+    ws.write(result + "\n");
+
+    ws.end();
+}
+
+----------------------------------------------------------------------------------
+In python 
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the designerPdfViewer function below.
+def designerPdfViewer(h, word):
+    maximum = 0 
+    length = 0
+    for i in word:
+        length +=1
+        current = h[ord(i)-97]
+        if(maximum < current):
+            maximum = current
+    return maximum * length
+    
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    h = list(map(int, input().rstrip().split()))
+
+    word = input()
+
+    result = designerPdfViewer(h, word)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
+
