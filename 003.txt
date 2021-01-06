@@ -1,0 +1,110 @@
+===============================================================================
+Hackerrank link => https://www.hackerrank.com/challenges/jumping-on-the-clouds
+===============================================================================
+
+=================================>> PYTHON <<==================================
+
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the jumpingOnClouds function below.
+def jumpingOnClouds(c):
+    jumps = 0
+    l = len(c)
+    x=0
+    while(x < l):
+        if(x+2 <= l-1 and c[x+2] != 1):
+            jumps += 1
+            x += 2
+        else:
+            jumps += 1
+            x += 1
+    return jumps - 1
+            
+    
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input())
+
+    c = list(map(int, input().rstrip().split()))
+
+    result = jumpingOnClouds(c)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
+
+
+X===========X============X=======>> PYTHON <<=======X===========X=============X
+
+===============================>> JAVASCRIPT <<================================
+
+'use strict';
+
+const fs = require('fs');
+
+process.stdin.resume();
+process.stdin.setEncoding('utf-8');
+
+let inputString = '';
+let currentLine = 0;
+
+process.stdin.on('data', inputStdin => {
+    inputString += inputStdin;
+});
+
+process.stdin.on('end', _ => {
+    inputString = inputString.replace(/\s*$/, '')
+        .split('\n')
+        .map(str => str.replace(/\s*$/, ''));
+
+    main();
+});
+
+function readLine() {
+    return inputString[currentLine++];
+}
+
+
+// Complete the jumpingOnClouds function below.
+function jumpingOnClouds(c) {
+    let jumps = 0 ,x=0;
+    let l = c.length
+    while(x < l){
+        if(x+2 <= l-1 && c[x+2] != 1){
+            jumps += 1
+            x += 2
+        }
+        else{
+            jumps += 1
+            x += 1
+        }
+    }
+        
+    return jumps - 1
+
+}
+
+function main() {
+    const ws = fs.createWriteStream(process.env.OUTPUT_PATH);
+
+    const n = parseInt(readLine(), 10);
+
+    const c = readLine().split(' ').map(cTemp => parseInt(cTemp, 10));
+
+    let result = jumpingOnClouds(c);
+
+    ws.write(result + "\n");
+
+    ws.end();
+}
+
+
+X==========X===========X=======>> JAVASCRIPT <<======X=============X==========X
